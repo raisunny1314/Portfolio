@@ -9,6 +9,12 @@ const Intro = () => {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
 
+  const handleProject =()=>{
+    document.getElementById("projects")?.scrollIntoView({behavior:"smooth"})
+  }
+ const handleGetTouch =()=>{
+    document.getElementById("getTouch")?.scrollIntoView({behavior:"smooth"})
+  }
   useEffect(() => {
 
     const full = texts[i];
@@ -33,7 +39,7 @@ const Intro = () => {
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
 
    
-      <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 font-mono text-xs text-zinc-400">
+      <div className="inline-flex items-center gap-2 mt-5 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 font-mono text-xs text-zinc-400">
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
         {text}
         <span className="animate-pulse">|</span>
@@ -59,10 +65,10 @@ const Intro = () => {
 
       {/* buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mb-16">
-        <button className="px-6 py-3.5 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors">
+        <button onClick={handleProject} className="px-6 py-3.5 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors">
           View Projects →
         </button>
-        <button className="px-6 py-3.5 rounded-xl border border-zinc-700 text-white font-semibold hover:bg-zinc-900 transition-colors">
+        <button onClick={handleGetTouch} className="px-6 py-3.5 rounded-xl border border-zinc-700 text-white font-semibold hover:bg-zinc-900 transition-colors">
           Get in touch
         </button>
       </div>

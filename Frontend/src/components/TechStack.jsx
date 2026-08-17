@@ -14,7 +14,7 @@ const TAG_STYLE =
 export default function TechStack() {
     return (
         <section className="border-y border-zinc-800 bg-[#0f0f0f] px-6 py-20 md:px-14">
-            <div className="mx-auto max-w-[1100px]">
+            <div className="mx-auto max-w-275">
                 <div className="mb-12 text-center">
                     <p className="mb-3 font-mono text-[11px] uppercase tracking-[2px] text-zinc-600">
                         Tech Stack

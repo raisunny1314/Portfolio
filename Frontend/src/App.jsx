@@ -26,7 +26,7 @@ function App() {
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      {/* <IntroCanvas/> */}
+      <IntroCanvas/>
       
       <div className='relative z-10'>
 

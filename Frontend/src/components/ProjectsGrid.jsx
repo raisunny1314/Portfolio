@@ -16,7 +16,7 @@ const ProjectsGrid = () => {
                 setProjects(res.data.data);
                 setLoading(false);
             }).catch((err) => {
-                setErr('Fauled To load Projects');
+                setErr('Failed To load Projects');
                 setLoading(false);
 
             })
@@ -28,7 +28,7 @@ const ProjectsGrid = () => {
 
 
     return (
-        <div className=" flex gap-2">
+        <div className=" grid gap-6 md:grid-cols-3 pt-5">
             {projects.map((project) => (
                 <ProjectCard key={project._id} project={project} />
             ))}
