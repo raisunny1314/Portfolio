@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../services/api';
 const initialFormState = {
-  type: "work",          // default 'work' ya 'education'
-  title: "",             // Role (e.g. Frontend Intern) ya Degree (e.g. B.E. Computer Engg)
-  institution: "",       // Company name ya College/University
-  startDate: "",         // e.g. "Aug 2024" ya "2021"
-  endDate: "",           // e.g. "Present" ya "May 2025"
-  description: "",       // Summary / responsibilities
+  type: "work",       
+  title: "",             
+  institution: "",       
+  startDate: "",         
+  endDate: "",           
+  description: "",      
   order: 0,
 };
 
@@ -222,7 +222,7 @@ const handleCancelEdit = ()=>{
 
         {!loading && !err && experiences.length > 0 && (
           <div className="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
-            <table className="w-full text-left border-collapse min-w-[640px]">
+            <table className="w-full text-left border-collapse min-w-160">
               <thead>
                 <tr className="text-gray-500 text-sm border-b border-[#262626]">
                   <th className="py-3">Type</th>

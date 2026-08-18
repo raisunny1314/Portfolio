@@ -232,7 +232,7 @@ const ProjectsHub = () => {
 
                 {!loading && !err && (
                     <div className="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
-                        <table className="w-full text-left border-collapse min-w-[640px]">
+                        <table className="w-full text-left border-collapse min-w-160">
                             <thead>
                                 <tr className="text-gray-500 text-sm border-b border-[#262626]">
                                     <th className="py-3">Project Name</th>
