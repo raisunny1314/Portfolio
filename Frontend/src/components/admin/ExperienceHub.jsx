@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../services/api';
 const initialFormState = {
-  type: "work",       
-  title: "",             
-  institution: "",       
-  startDate: "",         
-  endDate: "",           
-  description: "",      
+  type: "work",
+  title: "",
+  institution: "",
+  startDate: "",
+  endDate: "",
+  description: "",
   order: 0,
 };
 
@@ -49,15 +49,15 @@ const ExperienceHub = () => {
         setExperience((prev) =>
           prev.map((p) => (p._id === editingId ? res.data.data : p))
         );
-      }else{
-        
-              const res = await api.post("/admin/experience", payload);
-        
-              setExperience((prev) => [...prev, res.data.data]);
+      } else {
+
+        const res = await api.post("/admin/experience", payload);
+
+        setExperience((prev) => [...prev, res.data.data]);
 
       }
 
-
+       setEditingId(null);
       setFormData(initialFormState);
 
 
@@ -80,24 +80,25 @@ const ExperienceHub = () => {
   }
 
 
-  
-    const handleEdit = (item) => {
-      setFormData({
-        type: item.type || "work",
-        title: item.title || "",
-        institution: item.institution || "",
-        startDate: item.startDate || "",
-        endDate: item.endDate || "",
-        description: item.description || "",
-        order: item.order || 0,
-      });
-      setEditingId(item._id);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-  
-const handleCancelEdit = ()=>{
-  setFormData(initialFormState);
-}
+
+  const handleEdit = (item) => {
+    setFormData({
+      type: item.type || "work",
+      title: item.title || "",
+      institution: item.institution || "",
+      startDate: item.startDate || "",
+      endDate: item.endDate || "",
+      description: item.description || "",
+      order: item.order || 0,
+    });
+    setEditingId(item._id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleCancelEdit = () => {
+    setFormData(initialFormState);
+    setEditingId(null);
+  }
   return (
     <>
 
@@ -108,14 +109,14 @@ const handleCancelEdit = ()=>{
             {editingId ? "Edit Experience" : "Add Experience / Education"}
           </h2>
           {editingId && (
-          <button
-            type="button"
-            onClick={handleCancelEdit}
-            className="text-xs text-gray-400 hover:text-gray-200 underline"
-          >
-            Cancel edit
-          </button>
-       ) } 
+            <button
+              type="button"
+              onClick={handleCancelEdit}
+              className="text-xs text-gray-400 hover:text-gray-200 underline"
+            >
+              Cancel edit
+            </button>
+          )}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -204,7 +205,7 @@ const handleCancelEdit = ()=>{
             onClick={handleSubmit}
             className="bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
           >
-            {editingId ? "Update Experience" : "Add Experience"} 
+            {editingId ? "Update Experience" : "Add Experience"}
           </button>
         </div>
       </div>
