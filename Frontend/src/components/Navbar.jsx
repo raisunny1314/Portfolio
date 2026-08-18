@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = ({ darkMode, setDarkMode }) => {
     const handleWork = ()=>{
@@ -73,9 +74,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
 
                 </button>
-                <button className="px-5 py-2 text-sm font-medium text-white dark:text-black bg-black dark:bg-white rounded-full hover:bg-zinc-800 dark:hover:bg-gray-100 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] active:scale-95 transition-all duration-300">
+                <Link to='/admin/login' className="px-5 py-2 text-sm font-medium text-white dark:text-black bg-black dark:bg-white rounded-full hover:bg-zinc-800 dark:hover:bg-gray-100 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] active:scale-95 transition-all duration-300">
                     Admin Login
-                </button>
+                </Link>
             </div>
         </div>
     )

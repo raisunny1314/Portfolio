@@ -65,7 +65,7 @@ const Intro = () => {
 
       {/* buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mb-16">
-        <button onClick={handleProject} className="px-6 py-3.5 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors">
+        <button onClick={handleProject} className="px-6 py-3.5 rounded-xl bg-white text-black font-semibold   text-sm dark:text-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-100 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] active:scale-95 transition-all duration-300">
           View Projects →
         </button>
         <button onClick={handleGetTouch} className="px-6 py-3.5 rounded-xl border border-zinc-700 text-white font-semibold hover:bg-zinc-900 transition-colors">

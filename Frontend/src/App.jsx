@@ -1,38 +1,40 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero';
-import IntroCanvas from './components/IntroCanvas';
-
-
+import HomePage from './pages/HomePage';
+import { Routes, Route } from "react-router-dom";
+import AdminLogin from './pages/AdminLogin';
+import Dashboard from './components/admin/Dashboard';
+import ProtectedRoutes from './routes/ProtectedRoutes';
+import ProjectsHub from './components/admin/ProjectsHub';
+import ExperienceHub from './components/admin/ExperienceHub';
+import CodingProfiles from './components/admin/CodingProfiles';
+import GeneralInfoHub from './components/admin/GeneralInfoHub';
+import SocialLinkHub from './components/admin/SocialLinkHub';
 
 function App() {
 
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved !== null ? JSON.parse(saved) : true;
-  });
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-  }, [darkMode]);
 
   return (
     <>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
-      <IntroCanvas/>
-      
-      <div className='relative z-10'>
+        <Route path='/admin/dashboard' element={
+          <ProtectedRoutes>
+            <Dashboard />
+          </ProtectedRoutes>
+        } >
+          <Route path='projects' element={<ProjectsHub/>}/>
+          <Route path='experience' element={<ExperienceHub/>}/>
+          <Route path='coding' element={<CodingProfiles/>}/>
+          <Route path='general' element={<GeneralInfoHub/>}/>
+          <Route path='social' element={<SocialLinkHub/>}/>
 
-      <Hero/>
 
-      </div>
+        </Route>
+
+      </Routes>
     </>
   )
 }
