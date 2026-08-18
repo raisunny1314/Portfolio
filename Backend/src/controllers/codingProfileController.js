@@ -66,7 +66,7 @@ const updateCodingProfile = async (req, res) => {
 
         if (!codingprofile) {
 
-            res.status(404).send({ success: false, message: "Not Found" });
+            res.status(404).send({ success: false, message: "Not Found" ,data:codingprofile});
 
         }
 
