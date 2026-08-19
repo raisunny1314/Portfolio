@@ -15,11 +15,24 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-app.use(cors({
-  origin: "https://portfolio-sunnyrais-projects.vercel.app",
-  credentials: true,
-}));
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://portfolio-sunnyrais-projects.vercel.app' // Fixed Production Domain
+];
 
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Direct API calls, Localhost, Fixed Production Domain, ya koi bhi Preview URL
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+        return callback(null, true);
+      }
+      return callback(new Error('CORS Error: Origin not allowed'));
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+  })
 
 
 const projectRoutes = require('./routes/projectRoutes');
