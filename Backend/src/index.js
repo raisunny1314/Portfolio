@@ -18,13 +18,12 @@ app.use(cookieParser());
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
-  'https://portfolio-sunnyrais-projects.vercel.app' // Fixed Production Domain
+  'https://portfolio-sunnyrais-projects.vercel.app'
 ];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Direct API calls, Localhost, Fixed Production Domain, ya koi bhi Preview URL
       if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
         return callback(null, true);
       }
@@ -33,6 +32,7 @@ app.use(
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
   })
+);
 
 
 const projectRoutes = require('./routes/projectRoutes');
