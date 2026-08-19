@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://portfolio-pw78lxjmf-sunnyrais-projects.vercel.app/",
   credentials: true,
 }));
 
