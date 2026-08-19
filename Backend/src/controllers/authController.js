@@ -54,10 +54,10 @@ const login = async (req, res) => {
         )
 
         res.cookie('token', token, {
-    maxAge: 5 * 60 * 60 * 1000,
-    httpOnly: true,
-    secure: true,       
-    sameSite: 'none',   
+            maxAge: 5 * 60 * 60 * 1000,
+            httpOnly: true,
+            secure: true,       
+            sameSite: 'none',   
 })
         return res.status(200).send({ success: true, token });
 
