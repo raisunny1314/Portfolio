@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: "https://portfolio-a27qz7eoh-sunnyrais-projects.vercel.app/",
+  origin: "https://portfolio-sunnyrais-projects.vercel.app",
   credentials: true,
 }));
 
